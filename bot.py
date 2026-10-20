@@ -5,11 +5,11 @@ import feedparser
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 
-# RSS Feeds for Shopping Deals & Offers
+# High-reliability Working Deal Feeds
 RSS_FEEDS = [
-    "https://www.desidime.com/feed",
-    "https://news.google.com/rss/search?q=Flipkart+Loot+Deals&hl=en-IN&gl=IN&ceid=IN:en",
-    "https://news.google.com/rss/search?q=Amazon+Discount+Offers+India&hl=en-IN&gl=IN&ceid=IN:en"
+    "https://news.google.com/rss/search?q=Amazon+Loot+Deal+Offer&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=Flipkart+Big+Discount+Offer&hl=en-IN&gl=IN&ceid=IN:en",
+    "https://news.google.com/rss/search?q=Shopping+Discount+Offer+India&hl=hi-IN&gl=IN&ceid=IN:hi"
 ]
 
 SEEN_FILE = "seen_posts.txt"
@@ -26,10 +26,10 @@ def save_seen_post(post_id):
 
 def send_telegram_message(title, link):
     message = (
-        f"🛍️ **LOOT DEAL ALERT!** 🛍️\n\n"
+        f"🛍️ **HOT LOOT DEAL ALERT!** 🛍️\n\n"
         f"🔥 {title}\n\n"
-        f"🛒 **Buy Now / Grab Offer:** {link}\n\n"
-        f"📢 Join: {CHAT_ID}"
+        f"🛒 **Offer & Buy Link:** {link}\n\n"
+        f"📢 Join Channel: {CHAT_ID}"
     )
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {
@@ -58,4 +58,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-  
